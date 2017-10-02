@@ -5,15 +5,7 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Carrier'), ['action' => 'edit', $carrier->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Carrier'), ['action' => 'delete', $carrier->id], ['confirm' => __('Are you sure you want to delete # {0}?', $carrier->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Carriers'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Carrier'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Patients'), ['controller' => 'Patients', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Patient'), ['controller' => 'Patients', 'action' => 'add']) ?> </li>
-    </ul>
+    <?= $this->Element('actions', array('type' => 'Carrier', 'typePlural' => 'Carriers')); ?>
 </nav>
 <div class="carriers view large-9 medium-8 columns content">
     <h3><?= h($carrier->name) ?></h3>
@@ -34,10 +26,6 @@
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($carrier->created) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($carrier->modified) ?></td>
-        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Patients') ?></h4>
@@ -53,8 +41,6 @@
                 <th scope="col"><?= __('Zipcode') ?></th>
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Phone') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($carrier->patients as $patients): ?>
@@ -68,8 +54,6 @@
                 <td><?= h($patients->zipcode) ?></td>
                 <td><?= h($patients->email) ?></td>
                 <td><?= h($patients->phone) ?></td>
-                <td><?= h($patients->created) ?></td>
-                <td><?= h($patients->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Patients', 'action' => 'view', $patients->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Patients', 'action' => 'edit', $patients->id]) ?>

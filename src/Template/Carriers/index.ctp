@@ -5,12 +5,7 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Carrier'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Patients'), ['controller' => 'Patients', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Patient'), ['controller' => 'Patients', 'action' => 'add']) ?></li>
-    </ul>
+    <?= $this->Element('actions', array('type' => 'Carrier', 'typePlural' => 'Carriers')); ?>
 </nav>
 <div class="carriers index large-9 medium-8 columns content">
     <h3><?= __('Carriers') ?></h3>
@@ -20,8 +15,6 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('carrier_code') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -31,8 +24,6 @@
                 <td><?= $this->Number->format($carrier->id) ?></td>
                 <td><?= h($carrier->name) ?></td>
                 <td><?= h($carrier->carrier_code) ?></td>
-                <td><?= h($carrier->created) ?></td>
-                <td><?= h($carrier->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $carrier->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $carrier->id]) ?>
