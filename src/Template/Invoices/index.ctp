@@ -5,12 +5,7 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Invoice'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Patients'), ['controller' => 'Patients', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Patient'), ['controller' => 'Patients', 'action' => 'add']) ?></li>
-    </ul>
+    <?= $this->Element('actions', array('type' => 'Invoice', 'typePlural' => 'Invoices')); ?>
 </nav>
 <div class="invoices index large-9 medium-8 columns content">
     <h3><?= __('Invoices') ?></h3>
@@ -23,7 +18,6 @@
                 <th scope="col"><?= $this->Paginator->sort('services') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('due') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -36,7 +30,6 @@
                 <td><?= h($invoice->services) ?></td>
                 <td><?= h($invoice->due) ?></td>
                 <td><?= h($invoice->created) ?></td>
-                <td><?= h($invoice->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>
